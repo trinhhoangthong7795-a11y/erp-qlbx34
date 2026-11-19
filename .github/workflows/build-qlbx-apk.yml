@@ -89,6 +89,66 @@ jobs:
           JSON
           npm install
           npx cap add android
+          mkdir -p android/app/src/main/java/vn/qlbx/erp
+          cat > android/app/src/main/java/vn/qlbx/erp/MainActivity.java <<'JAVA'
+          package vn.qlbx.erp;
+          import android.os.Bundle;
+          import android.webkit.WebView;
+          import com.getcapacitor.BridgeActivity;
+          public class MainActivity extends BridgeActivity {
+            @Override public void onCreate(Bundle savedInstanceState) {
+              super.onCreate(savedInstanceState);
+              WebView webView = getBridge().getWebView();
+              webView.addJavascriptInterface(new QLBXDownloadBridge(this), "QLBXDownload");
+            }
+          }
+          JAVA
+          cat > android/app/src/main/java/vn/qlbx/erp/QLBXDownloadBridge.java <<'JAVA'
+          package vn.qlbx.erp;
+          import android.content.ContentValues;
+          import android.net.Uri;
+          import android.os.Build;
+          import android.os.Environment;
+          import android.provider.MediaStore;
+          import android.webkit.JavascriptInterface;
+          import android.util.Base64;
+          import java.io.OutputStream;
+          import java.io.File;
+          import java.io.FileOutputStream;
+          public class QLBXDownloadBridge {
+            private final MainActivity activity;
+            QLBXDownloadBridge(MainActivity activity) { this.activity = activity; }
+            @JavascriptInterface
+            public String saveBase64(String fileName, String mimeType, String base64) {
+              try {
+                String safeName = fileName == null ? "QLBX_file" : fileName.replaceAll("[\\\\/:*?\\\"<>|]", "_");
+                byte[] bytes = Base64.decode(base64, Base64.DEFAULT);
+                if (Build.VERSION.SDK_INT >= 29) {
+                  ContentValues values = new ContentValues();
+                  values.put(MediaStore.MediaColumns.DISPLAY_NAME, safeName);
+                  values.put(MediaStore.MediaColumns.MIME_TYPE, mimeType == null ? "application/octet-stream" : mimeType);
+                  values.put(MediaStore.MediaColumns.RELATIVE_PATH, Environment.DIRECTORY_DOWNLOADS + "/QLBX Chat ERP 34");
+                  values.put(MediaStore.MediaColumns.IS_PENDING, 1);
+                  Uri uri = activity.getContentResolver().insert(MediaStore.Downloads.EXTERNAL_CONTENT_URI, values);
+                  if (uri == null) return "ERROR:Không tạo được tệp trong thư mục Tải xuống";
+                  try (OutputStream out = activity.getContentResolver().openOutputStream(uri)) {
+                    if (out == null) throw new Exception("Không mở được tệp đích");
+                    out.write(bytes);
+                  }
+                  ContentValues done = new ContentValues();
+                  done.put(MediaStore.MediaColumns.IS_PENDING, 0);
+                  activity.getContentResolver().update(uri, done, null, null);
+                  return "OK:" + safeName;
+                }
+                File dir = activity.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS);
+                if (dir == null) return "ERROR:Không truy cập được thư mục lưu tệp";
+                File file = new File(dir, safeName);
+                try (FileOutputStream out = new FileOutputStream(file)) { out.write(bytes); }
+                return "OK:" + file.getAbsolutePath();
+              } catch (Exception e) { return "ERROR:" + e.getMessage(); }
+            }
+          }
+          JAVA
           npx cap sync android
 
       - name: Build debug APK
@@ -99,13 +159,13 @@ jobs:
           chmod +x gradlew
           ./gradlew --no-daemon assembleDebug
           mkdir -p ../dist
-          cp app/build/outputs/apk/debug/app-debug.apk ../dist/QLBX_Chat_ERP34_v1.0.0.apk
+          cp app/build/outputs/apk/debug/app-debug.apk ../dist/QLBX_Chat_ERP34_v1.0.1.apk
           test -s ../dist/QLBX_Chat_ERP34_v1.0.0.apk
 
       - name: Upload APK as workflow artifact
         uses: actions/upload-artifact@v4
         with:
-          name: QLBX-Chat-ERP34-APK-v1.0.0
+          name: QLBX-Chat-ERP34-APK-v1.0.1
           path: dist/QLBX_Chat_ERP34_v1.0.0.apk
           if-no-files-found: error
           retention-days: 30
@@ -114,7 +174,7 @@ jobs:
         if: github.event_name != 'pull_request'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAG: qlbx-chat-erp34-apk-v1.0.0
+          TAG: qlbx-chat-erp34-apk-v1.0.1
         shell: bash
         run: |
           set -euo pipefail
@@ -122,6 +182,6 @@ jobs:
             gh release upload "$TAG" dist/QLBX_Chat_ERP34_v1.0.0.apk --clobber
           else
             gh release create "$TAG" dist/QLBX_Chat_ERP34_v1.0.0.apk \
-              --title "QLBX Chat ERP 34 - Android APK v1.0.0" \
+              --title "QLBX Chat ERP 34 - Android APK v1.0.1" \
               --notes "Bản cài Android của QLBX Chat ERP 34. Ứng dụng dùng Firebase Realtime Database hiện tại; đăng nhập bằng tài khoản ADMIN đã được cấp."
           fi
