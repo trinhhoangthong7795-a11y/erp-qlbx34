@@ -48,7 +48,7 @@
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const ADMIN_UID='iGdxSg85yERYRloXb4M099TnHXn2';
 const state={vehicles:[],logs:[],backend:false,activeView:'chat',user:null,dbRef:null,remoteReady:false,lastSynced:{vehicles:{},logs:{}}};
-const firebaseConfig={apiKey:'AIzaSyDrMV8t3UTbanAsX5kvbvd6ft6kMxcTS6s',authDomain:'new-erp-608f6.firebaseapp.com',databaseURL:'https://new-erp-608f6-default-rtdb.asia-southeast1.firebasedatabase.app',projectId:'new-erp-608f6',storageBucket:'new-erp-608f6.firebasestorage.app',messagingSenderId:'810747632401',appId:'1:810747632401:web:53951e1b5579189f2b4ab0',measurementId:'G-YE2DVXP896'};
+const firebaseConfig={apiKey:'AIzaSyDrMV8t3UTbanAsX5kvbvd6ft6kMxcTS6',authDomain:'new-erp-608f6.firebaseapp.com',databaseURL:'https://new-erp-608f6-default-rtdb.asia-southeast1.firebasedatabase.app',projectId:'new-erp-608f6',storageBucket:'new-erp-608f6.firebasestorage.app',messagingSenderId:'810747632401',appId:'1:810747632401:web:53951e1b5579189f2b4ab0',measurementId:'G-YE2DVXP896'};
 firebase.initializeApp(firebaseConfig);
 const auth=firebase.auth();const database=firebase.database();
 const today=()=>{const d=new Date();return new Date(d.getTime()-d.getTimezoneOffset()*60000).toISOString().slice(0,10)};
