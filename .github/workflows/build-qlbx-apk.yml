@@ -1,0 +1,121 @@
+name: Build QLBX Chat ERP 34 APK
+
+on:
+  push:
+    branches:
+      - qlbx-chat-erp34-pages
+    paths:
+      - 'app.html'
+      - 'manifest.webmanifest'
+      - 'sw.js'
+      - '.github/workflows/build-qlbx-apk.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: qlbx-chat-erp34-apk
+  cancel-in-progress: false
+
+jobs:
+  build-apk:
+    name: Build Android APK
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout app source
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Set up Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Prepare Capacitor project
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p www
+          cp app.html www/index.html
+          cp app.html www/app.html
+          cp manifest.webmanifest www/manifest.webmanifest
+          cp sw.js www/sw.js
+          cat > package.json <<'JSON'
+          {
+            "name": "qlbx-chat-erp34",
+            "version": "1.0.0",
+            "private": true,
+            "description": "QLBX Chat ERP 34 Android wrapper",
+            "scripts": {
+              "android:sync": "cap sync android"
+            },
+            "dependencies": {
+              "@capacitor/android": "7.4.3",
+              "@capacitor/core": "7.4.3"
+            },
+            "devDependencies": {
+              "@capacitor/cli": "7.4.3"
+            }
+          }
+          JSON
+          cat > capacitor.config.json <<'JSON'
+          {
+            "appId": "vn.qlbx.erp",
+            "appName": "QLBX Chat ERP 34",
+            "webDir": "www",
+            "server": {
+              "androidScheme": "https",
+              "hostname": "localhost"
+            },
+            "android": {
+              "allowMixedContent": false
+            }
+          }
+          JSON
+          npm install
+          npx cap add android
+          npx cap sync android
+
+      - name: Build debug APK
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd android
+          chmod +x gradlew
+          ./gradlew --no-daemon assembleDebug
+          mkdir -p ../dist
+          cp app/build/outputs/apk/debug/app-debug.apk ../dist/QLBX_Chat_ERP34_v1.0.0.apk
+          test -s ../dist/QLBX_Chat_ERP34_v1.0.0.apk
+
+      - name: Upload APK as workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: QLBX-Chat-ERP34-APK-v1.0.0
+          path: dist/QLBX_Chat_ERP34_v1.0.0.apk
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Publish APK release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: qlbx-chat-erp34-apk-v1.0.0
+        shell: bash
+        run: |
+          set -euo pipefail
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" dist/QLBX_Chat_ERP34_v1.0.0.apk --clobber
+          else
+            gh release create "$TAG" dist/QLBX_Chat_ERP34_v1.0.0.apk \
+              --title "QLBX Chat ERP 34 - Android APK v1.0.0" \
+              --notes "Bản cài Android của QLBX Chat ERP 34. Ứng dụng dùng Firebase Realtime Database hiện tại; đăng nhập bằng tài khoản ADMIN đã được cấp."
+          fi
