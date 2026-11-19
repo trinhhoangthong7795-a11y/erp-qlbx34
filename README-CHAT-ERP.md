@@ -1,9 +1,18 @@
 # QLBX Chat ERP 34 – GitHub Pages
 
-Nhánh này dành riêng cho ứng dụng Chat ERP và không thay thế dashboard trong `main`.
+Nhánh này triển khai riêng ứng dụng Chat ERP v1.5. Nhánh `main` và ứng dụng dashboard hiện tại không bị thay đổi.
 
-Bật trang: Settings → Pages → Deploy from a branch → chọn `qlbx-chat-erp34-pages`, folder `/(root)` → Save.
+## Files
+- `index.html`: trang vào của Chat ERP
+- `app.html`: mã nguồn ứng dụng Chat ERP v1.5
+- `sw.js`, `manifest.webmanifest`: PWA assets
 
-URL sau khi bật: https://trinhhoangthong7795-a11y.github.io/erp-qlbx34/
+## Enable Pages
+Repository Settings → Pages → Build and deployment → Deploy from a branch → chọn `qlbx-chat-erp34-pages`, folder `/(root)` → Save.
 
-Trong Firebase Authentication → Settings → Authorized domains, thêm `trinhhoangthong7795-a11y.github.io`. Không đổi Rules và không xóa dữ liệu để triển khai trang.
+URL: https://trinhhoangthong7795-a11y.github.io/erp-qlbx34/
+
+## Firebase
+Thêm `trinhhoangthong7795-a11y.github.io` trong Firebase Console → Authentication → Settings → Authorized domains. Không thay Realtime Database Rules và không xóa dữ liệu Firebase cho bước này.
+
+Sau khi Pages được bật, mở URL HTTPS trên Android Chrome để đăng nhập. Xóa dữ liệu trình duyệt/cache cũ nếu đã ghim PWA bản trước.
