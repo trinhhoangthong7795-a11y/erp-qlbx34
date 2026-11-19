@@ -58,7 +58,7 @@ jobs:
           cat > package.json <<'JSON'
           {
             "name": "qlbx-chat-erp34",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "private": true,
             "description": "QLBX Chat ERP 34 Android wrapper",
             "scripts": {
@@ -160,13 +160,13 @@ jobs:
           ./gradlew --no-daemon assembleDebug
           mkdir -p ../dist
           cp app/build/outputs/apk/debug/app-debug.apk ../dist/QLBX_Chat_ERP34_v1.0.1.apk
-          test -s ../dist/QLBX_Chat_ERP34_v1.0.0.apk
+          test -s ../dist/QLBX_Chat_ERP34_v1.0.1.apk
 
       - name: Upload APK as workflow artifact
         uses: actions/upload-artifact@v4
         with:
           name: QLBX-Chat-ERP34-APK-v1.0.1
-          path: dist/QLBX_Chat_ERP34_v1.0.0.apk
+          path: dist/QLBX_Chat_ERP34_v1.0.1.apk
           if-no-files-found: error
           retention-days: 30
 
@@ -179,9 +179,9 @@ jobs:
         run: |
           set -euo pipefail
           if gh release view "$TAG" >/dev/null 2>&1; then
-            gh release upload "$TAG" dist/QLBX_Chat_ERP34_v1.0.0.apk --clobber
+            gh release upload "$TAG" dist/QLBX_Chat_ERP34_v1.0.1.apk --clobber
           else
-            gh release create "$TAG" dist/QLBX_Chat_ERP34_v1.0.0.apk \
+            gh release create "$TAG" dist/QLBX_Chat_ERP34_v1.0.1.apk \
               --title "QLBX Chat ERP 34 - Android APK v1.0.1" \
               --notes "Bản cài Android của QLBX Chat ERP 34. Ứng dụng dùng Firebase Realtime Database hiện tại; đăng nhập bằng tài khoản ADMIN đã được cấp."
           fi
