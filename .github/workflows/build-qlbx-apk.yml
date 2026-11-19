@@ -9,6 +9,9 @@ on:
       - 'manifest.webmanifest'
       - 'sw.js'
       - '.github/workflows/build-qlbx-apk.yml'
+  pull_request:
+    branches:
+      - qlbx-chat-erp34-pages
   workflow_dispatch:
 
 permissions:
@@ -108,6 +111,7 @@ jobs:
           retention-days: 30
 
       - name: Publish APK release
+        if: github.event_name != 'pull_request'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TAG: qlbx-chat-erp34-apk-v1.0.0
