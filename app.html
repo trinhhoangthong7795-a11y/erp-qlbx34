@@ -40,6 +40,26 @@
 <div class="authGate" id="authGate"><div class="authCard"><h2>QLBX Chat ERP 34</h2><p>Đăng nhập tài khoản được cấp quyền để truy cập dữ liệu bãi xe và đồng bộ trực tuyến.</p><form id="loginForm"><label class="small" for="loginEmail">Email ADMIN</label><input id="loginEmail" type="email" autocomplete="username" required placeholder="Email đăng nhập"><label class="small" for="loginPassword">Mật khẩu</label><input id="loginPassword" type="password" autocomplete="current-password" required placeholder="Mật khẩu Firebase"><div class="authError" id="loginError"></div><div class="authActions"><button class="btn primary" id="loginBtn" type="submit">Đăng nhập</button></div></form><p class="small">Không có chức năng tự đăng ký. Tài khoản được tạo và quản lý trong Firebase Console.</p></div></div>
 <div class="menuShade" id="menuShade"><nav class="drawer"><div class="row"><div class="drawerTitle grow">QLBX ERP 34 · MENU</div><button class="close" id="menuClose">✕</button></div><button class="menuItem" data-go="note"><span>📒</span><span><b>NOTE</b><small>Hướng dẫn và sao chép mẫu lệnh</small></span></button><button class="menuItem" data-go="map"><span>🗺️</span><span><b>Sơ đồ bãi xe</b><small>5 dãy · 4 cột × 20 vị trí</small></span></button><button class="menuItem" data-go="backup"><span>💾</span><span><b>Sao lưu dữ liệu</b><small>Xuất và khôi phục JSON</small></span></button><div class="menuFoot">Giao diện chat và các trang menu hoạt động độc lập.</div></nav></div>
 <div class="modalShade" id="modalShade"><div class="modal"><div class="modalHead"><h3 id="modalTitle">Thông tin</h3><button class="close" id="modalClose">✕</button></div><div id="modalContent"></div></div></div><div class="toast" id="toast"></div>
+<script>
+(function(){
+  function showBootError(message){
+    var box=document.getElementById('loginError');
+    if(box) box.textContent='Lỗi khởi động: '+message;
+    var status=document.getElementById('firebaseStatus');
+    if(status) status.textContent='Không khởi tạo được Firebase: '+message;
+  }
+  window.addEventListener('error',function(e){if(e&&e.message)showBootError(e.message);});
+  window.addEventListener('unhandledrejection',function(e){
+    var r=e&&e.reason;showBootError(r&&r.message?r.message:String(r||'Lỗi không xác định'));
+  });
+  document.addEventListener('submit',function(e){
+    if(e.target&&e.target.id==='loginForm'&&!window.firebase){
+      e.preventDefault();
+      showBootError('Không tải được thư viện Firebase. Hãy kiểm tra Internet rồi mở lại ứng dụng.');
+    }
+  },true);
+})();
+</script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>
