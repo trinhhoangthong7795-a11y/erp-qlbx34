@@ -1,0 +1,11 @@
+{
+  "name": "QLBX Chat ERP 34",
+  "short_name": "QLBX ERP 34",
+  "description": "Quản lý bãi xe bằng giao diện chat",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f2f6fa",
+  "theme_color": "#203f60",
+  "orientation": "portrait"
+}
