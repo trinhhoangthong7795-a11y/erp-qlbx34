@@ -19,7 +19,7 @@ permissions:
 
 concurrency:
   group: qlbx-chat-erp34-apk
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build-apk:
