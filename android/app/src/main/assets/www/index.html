@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#082b55"><title>QUẢN LÝ BÃI XE 34</title>
+<style>
+:root{--navy:#082b55;--blue:#0878cf;--green:#159b62;--bg:#f2f5f9;--ink:#17283d;--muted:#64748b;--line:#dce4ed;--red:#d83b45;--gold:#e7ad22}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}button,input,select,textarea{font:inherit}button{min-height:44px;border:0;border-radius:11px;padding:9px 14px;background:var(--navy);color:white;font-weight:650;cursor:pointer}button.secondary{background:#e8eef5;color:var(--navy)}button.danger{background:#b92c3a}button:disabled{opacity:.45}.top{background:linear-gradient(110deg,#061e3d,#0b477e);color:white;padding:16px max(16px,env(safe-area-inset-left));position:sticky;top:0;z-index:5;box-shadow:0 3px 15px #061e3d24}.topline{display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{font-weight:850;letter-spacing:.4px;font-size:18px}.subbrand{font-size:12px;color:#c8d9eb}.wrap{max-width:1100px;margin:auto;padding:14px}.searchrow{display:flex;gap:8px;margin-top:13px}.searchrow input{flex:1;min-width:0}.tabs{display:flex;gap:7px;overflow:auto;padding:12px 0;position:sticky;top:110px;background:var(--bg);z-index:4}.tabs button{white-space:nowrap;background:#e1e9f2;color:#183755}.tabs button.active{background:var(--blue);color:white}.panel{background:white;border:1px solid var(--line);border-radius:16px;padding:15px;margin:0 0 13px;box-shadow:0 2px 10px #12243a08}.panel h2{font-size:16px;margin:0 0 12px;color:var(--navy)}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.field{display:flex;flex-direction:column;gap:5px;min-width:0}.field label{font-size:12px;font-weight:700;color:#40546b}.field input,.field select,.field textarea,.searchrow input{width:100%;border:1px solid #cbd6e2;border-radius:10px;padding:11px 12px;background:white;min-height:44px;color:var(--ink)}.field textarea{min-height:70px}.full{grid-column:1/-1}.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.muted{color:var(--muted);font-size:12px}.hidden{display:none!important}.kpis{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.kpi{border:1px solid var(--line);border-top:4px solid var(--blue);border-radius:12px;padding:12px;background:#fff}.kpi:nth-child(2){border-top-color:#18a7a0}.kpi:nth-child(3){border-top-color:var(--green)}.kpi:nth-child(4){border-top-color:var(--red)}.kpi small{display:block;color:var(--muted);font-size:10px;font-weight:800}.kpi strong{font-size:26px;color:var(--navy)}.kpi:nth-child(4) strong{color:var(--red)}.vehicle{border:1px solid var(--line);border-radius:12px;padding:12px;margin:8px 0;background:#fff}.vhead{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}.plate{font-size:17px;font-weight:850;color:var(--navy)}.pill{font-size:11px;border-radius:99px;padding:4px 8px;background:#e8f2ff;color:#075ba5;font-weight:800}.pill.new{background:#e6f7ee;color:#087944}.pill.out{background:#feecee;color:#ad2431}.detail{font-size:13px;color:#46596f;margin-top:6px}.detail b{color:#253b53}.yardrow{margin:10px 0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:white}.yardtitle{width:100%;display:flex;justify-content:space-between;align-items:center;border-radius:0;background:#eaf0f6;color:var(--navy);text-align:left}.yardbody{padding:10px;overflow-x:auto}.yardgrid{display:grid;grid-template-columns:repeat(4,minmax(78px,1fr));gap:7px;min-width:340px}.coltitle{text-align:center;font-size:11px;font-weight:800;color:#60748b}.slot{min-height:55px;padding:5px 3px;border-radius:8px;background:#eef1f4;color:#6c7b8c;border:1px solid #dce2e8;font-size:10px;display:flex;flex-direction:column;justify-content:center;align-items:center;line-height:1.25}.slot.old{background:#dceeff;border-color:#6db2ed;color:#07589c}.slot.new{background:#ddf5e8;border-color:#71c79a;color:#087443}.slot strong{font-size:11px}.slot small{font-size:9px;overflow-wrap:anywhere;text-align:center}.slot.selected{outline:3px solid #f2b632}.waitlist{display:flex;gap:7px;overflow-x:auto;padding-bottom:5px}.waititem{flex:0 0 auto;max-width:170px;text-align:left;background:#edf4fb;color:#17466f;border:1px solid #cbdced}.barrow{display:grid;grid-template-columns:100px 1fr 30px;gap:8px;align-items:center;margin:10px 0;font-size:12px}.bar{height:12px;border-radius:20px;background:#edf0f4;overflow:hidden}.bar span{display:block;height:100%;border-radius:20px;background:var(--gold)}.bar.orange span{background:#ed8531}.bar.red span{background:#d83b45}.chart{display:flex;align-items:end;gap:5px;height:160px;padding:12px 3px 24px;border-bottom:1px solid var(--line);overflow-x:auto}.day{min-width:30px;flex:1;display:flex;align-items:end;justify-content:center;gap:3px;height:100%;position:relative}.barunit{position:relative;height:100%;width:13px;display:flex;align-items:end;justify-content:center}.barcol{width:9px;min-height:0;border-radius:4px 4px 0 0;background:#167bc2}.barcol.newbar{background:#19a46a}.barvalue{position:absolute;left:50%;transform:translateX(-50%);font-size:9px;font-weight:700;line-height:11px;color:#26384b;white-space:nowrap}.day label{position:absolute;bottom:-22px;font-size:9px;color:#68788a;white-space:nowrap}.legend{font-size:11px;color:#586b80;display:flex;gap:12px;margin-top:10px}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px}.reporthead{background:linear-gradient(110deg,#071f40,#0b477e);color:white;padding:18px;border-radius:12px;margin-bottom:12px}.reporthead h2{color:white;margin:0}.reporthead p{margin:4px 0 0;color:#d0e2f4;font-size:12px}.reportgrid{display:grid;grid-template-columns:2fr 1fr;gap:10px}.metricline{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:12px 0;font-size:13px}.special{width:100%;min-height:75px;border:1px solid var(--line);border-radius:10px;padding:10px}.footer{font-size:10px;color:#6b7c8e;margin-top:14px}.empty{text-align:center;color:#7b8b9b;padding:22px}.modalback{position:fixed;inset:0;background:#07182dcc;z-index:10;display:flex;align-items:end;justify-content:center}.modal{background:white;width:min(100%,560px);border-radius:18px 18px 0 0;padding:18px;max-height:85vh;overflow:auto}.modal h3{margin:0 0 10px;color:var(--navy)}.hint{font-size:12px;color:#62758a;margin:8px 0}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#102e4e;color:white;padding:10px 16px;border-radius:30px;z-index:20;box-shadow:0 4px 18px #0003}
+@media(min-width:760px){.wrap{padding:22px}.kpis{grid-template-columns:repeat(4,1fr)}.grid{grid-template-columns:repeat(4,minmax(0,1fr))}.tabs{top:110px}.slot{min-height:60px}.yardgrid{gap:9px}}
+@media(max-width:560px){.reportgrid{grid-template-columns:1fr}.tabs{top:112px}.brand{font-size:16px}.top{padding-top:12px;padding-bottom:12px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="topline"><div><div class="brand">QUẢN LÝ BÃI XE 34</div><div class="subbrand">Quản lý vòng đời xe • Hoạt động ngoại tuyến</div></div><span class="pill" style="background:#d8eaff;color:#073e70">LOCAL</span></div><div class="searchrow"><input id="globalSearch" placeholder="Tìm biển số hoặc 6 số cuối VIN…" autocomplete="off"><button id="searchBtn">Tìm</button></div></header>
+<main class="wrap">
+<nav class="tabs" id="tabs"><button class="active" data-page="home">Tổng quan</button><button data-page="yard">Sơ đồ bãi</button><button data-page="entry">Nhập xe</button><button data-page="exit">Xuất xe</button><button data-page="report">Báo cáo</button><button data-page="settings">Dữ liệu</button></nav>
+<section id="home" class="page">
+<div class="kpis" id="homeKpis"></div>
+<div class="panel"><h2>Kết quả tìm kiếm / Xe mới cập nhật</h2><div id="searchResults"><div class="empty">Nhập biển số hoặc 6 số cuối VIN để tra cứu toàn bộ lịch sử xe.</div></div></div>
+<div class="panel"><h2>Xe đang chờ gán vị trí <span id="waitCount" class="pill">0</span></h2><div id="homeWait" class="waitlist"></div></div>
+</section>
+<section id="yard" class="page hidden">
+<div class="panel"><button id="waitingBar" class="secondary" style="width:100%;text-align:left;display:flex;justify-content:space-between;align-items:center"><span>Xe chờ gán vị trí · Chạm để xem</span><strong id="yardWaitCount">0</strong></button><div class="hint">Chọn xe trong danh sách, sau đó chạm một ô trống để gán.</div><div class="actions"><button class="secondary" id="cancelYardAction">Hủy thao tác</button></div></div>
+<div id="yardRows"></div>
+</section>
+<section id="entry" class="page hidden">
+<div class="panel"><h2>NHẬP XE VÀO BÃI</h2><div class="grid">
+<div class="field"><label>Loại xe</label><select id="eType"><option value="old">Xe cũ (Có biển)</option><option value="new">Xe mới (Chưa biển)</option></select></div>
+<div class="field"><label>Biển số / 6 số VIN</label><input id="eId" placeholder="Có thể để trống"></div>
+<div class="field"><label>Dòng xe</label><input id="eModel" list="models" placeholder="Chọn hoặc nhập mới"><datalist id="models"><option>VF 3</option><option>VF 5</option><option>VF e34</option><option>VF 6</option><option>VF 7</option><option>VF 8</option><option>VF 9</option><option>Limo Green</option><option>Minio Green</option><option>EC Van</option></datalist></div>
+<div class="field"><label>Màu xe</label><input id="eColor" list="colors" placeholder="Chọn hoặc nhập"><datalist id="colors"><option>Trắng</option><option>Đen</option><option>Đỏ</option><option>Xanh</option><option>Bạc</option><option>Ghi</option></datalist></div>
+<div class="field"><label>Người giao / Bộ phận</label><input id="ePerson" placeholder="Không bắt buộc"></div>
+<div class="field"><label>Thời gian vào (GMT+7)</label><input id="eTime" type="datetime-local"></div>
+<div class="field"><label>Vị trí ô đỗ (không bắt buộc)</label><select id="eSlot"><option value="">Chờ gán vị trí</option></select></div>
+<div class="field full"><label>Ghi chú</label><textarea id="eNote" placeholder="Ghi chú thêm"></textarea></div>
+</div><div class="actions"><button id="saveEntry">Lưu nhập xe</button><button class="secondary" id="clearEntry">Xóa form</button></div><div class="hint">Tất cả trường đều không bắt buộc. Nếu bỏ trống mã nhận diện, hồ sơ xe vẫn được tạo và cấp mã nội bộ.</div></div>
+</section>
+<section id="exit" class="page hidden">
+<div class="panel"><h2>XUẤT XE KHỎI BÃI</h2><div class="grid">
+<div class="field full"><label>Biển số / 6 số VIN đang trong bãi</label><input id="xId" list="activeCars" placeholder="Nhập để gợi ý xe đang trong bãi"><datalist id="activeCars"></datalist></div>
+<div class="field"><label>Người nhận / Bộ phận</label><input id="xPerson"></div><div class="field"><label>Lý do ra</label><input id="xReason" list="reasons" placeholder="Chọn hoặc nhập"><datalist id="reasons"><option>Giao GSM</option><option>Về xưởng</option><option>Giao khách</option><option>Điều chuyển</option><option>Khác</option></datalist></div>
+<div class="field"><label>Thời gian ra (GMT+7)</label><input id="xTime" type="datetime-local"></div><div class="field full"><label>Ghi chú</label><textarea id="xNote"></textarea></div>
+</div><div class="actions"><button id="saveExit">Xác nhận xuất xe</button></div></div>
+<div class="panel"><h2>Xe đang trong bãi</h2><div id="activeList"></div></div>
+</section>
+<section id="report" class="page hidden">
+<div class="panel"><div class="grid"><div class="field"><label>Kỳ báo cáo</label><select id="period"><option value="week">Theo tuần</option><option value="month">Theo tháng</option><option value="custom">Tùy chọn ngày</option></select></div><div class="field"><label>Ngày tham chiếu</label><input id="periodDate" type="date"></div><div class="field"><label>Từ ngày</label><input id="fromDate" type="date"></div><div class="field"><label>Đến ngày</label><input id="toDate" type="date"></div></div><div class="actions"><button id="refreshReport">Cập nhật báo cáo</button><button class="secondary" id="pngReport">Xuất ảnh báo cáo PNG</button><button class="secondary" id="xlsxExport">Xuất tồn bãi XLSX</button></div></div>
+<div id="reportCapture" class="panel">
+<div class="reporthead"><h2>BÁO CÁO TỔNG QUAN BÃI XE</h2><p id="reportRange"></p></div>
+<div class="kpis" id="reportKpis"></div>
+<div class="reportgrid" style="margin-top:12px"><div class="panel" style="margin:0"><h2>DIỄN BIẾN XE TỒN BÃI TRONG KỲ</h2><div class="muted">Số xe còn tại bãi cuối mỗi ngày - So sánh xe cũ và xe mới</div><div id="inventoryChart" class="chart"></div><div class="legend"><span><i class="dot" style="background:#167bc2"></i>Xe cũ</span><span><i class="dot" style="background:#19a46a"></i>Xe mới</span></div></div><div class="panel" style="margin:0"><h2>CHỈ TIÊU TRONG KỲ</h2><div id="periodMetrics"></div></div></div>
+<div class="panel" style="margin-top:12px"><h2>CẢNH BÁO XE TỒN BÃI THEO THỜI GIAN NHẬP</h2><div id="age0" class="muted"></div><div id="ageBars"></div></div>
+<div class="panel"><h2>DIỄN BIẾN ĐẶC BIỆT</h2><textarea id="specialEvents" class="special" placeholder="Nhập hoặc chọn ghi chú diễn biến đặc biệt trong kỳ…"></textarea><div id="specialPreview" class="muted" style="margin-top:6px"></div></div>
+<div class="footer" id="reportDataNote">Dữ liệu báo cáo được tính từ các mốc thời gian có trong hồ sơ. Bản chốt tồn Excel ngày 20/11/2026 được dùng làm mốc nền cho báo cáo từ 20/11 trở đi; các ngày thiếu thời gian không được tự suy diễn.</div>
+</div></section>
+<section id="settings" class="page hidden">
+<div class="panel"><h2>SAO LƯU & KHÔI PHỤC</h2><p class="muted">Dữ liệu được lưu trong trình duyệt trên thiết bị này. Xóa dữ liệu trình duyệt có thể làm mất dữ liệu nếu chưa sao lưu.</p><div class="actions"><button id="backup">Tải sao lưu JSON</button><button class="secondary" id="restoreBtn">Khôi phục JSON</button><input id="restoreFile" type="file" accept=".xlsx,.xls,.json,*/*" class="hidden"></div></div>
+<div class="panel"><h2>NHẬP / XUẤT EXCEL</h2>
+<p class="muted">Nhập toàn bộ lịch sử từ file Excel gốc. Khi xác nhận, dữ liệu hiện có trên thiết bị sẽ được thay thế để tránh nhập trùng.</p>
+<div class="actions"><input id="xlsxImportFile" type="file" accept=".xlsx,.xls,.json,*/*"><button id="xlsxImport">Nhập file Excel gốc</button><button class="secondary" id="xlsxTemplate">Tải file mẫu XLSX</button></div><div class="actions"><button class="secondary" id="xlsxFullExport">Xuất toàn bộ lịch sử XLSX</button></div>
+<div class="muted">Nhận diện trực tiếp Sheet1 và đủ 15 cột gốc, bao gồm hai cột TÊN / BỘ PHẬN. Dùng “Xuất toàn bộ lịch sử” để sao lưu và chuyển tiếp kỳ báo cáo; “Xuất tồn bãi” chỉ xuất xe đang ở bãi.</div></div>
+<div class="panel"><h2>QUẢN LÝ DỮ LIỆU</h2><p class="muted">Dữ liệu lưu trên trình duyệt và thiết bị hiện tại. Hãy sao lưu trước khi reset.</p><div class="actions"><button class="danger" id="resetAll">Xóa toàn bộ dữ liệu</button></div><div class="muted" id="dbInfo"></div></div>
+</section>
+</main>
+<div id="modalHost"></div><div id="toastHost"></div>
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script>
+'use strict';
+const DB_NAME='qlbx34_local_v1', STORE='vehicles'; let db, vehicles=[], yardChoice=null, moveCar=null, selectedSlot=null;
+const expandedRows=new Set([1,2,3,4,5]);
+const $=id=>document.getElementById(id), pad=n=>String(n).padStart(2,'0');
+function localNow(){const d=new Date(Date.now()+7*3600000);return d.toISOString().slice(0,16)}
+function fromLocal(s){return s?new Date(s+':00+07:00').toISOString():new Date().toISOString()}
+function fmt(s){if(!s)return 'Chưa ghi nhận';const d=new Date(s);return new Intl.DateTimeFormat('vi-VN',{timeZone:'Asia/Ho_Chi_Minh',dateStyle:'short',timeStyle:'short'}).format(d)}
+function currentEntryDate(v){
+  // Nếu bản ghi đã có trường entryDate (kể cả null), không được suy diễn từ createdAt/time hệ thống.
+  if(Object.prototype.hasOwnProperty.call(v,'entryDate'))
+    return v.entryDate && validDateValue(v.entryDate) ? dateOnly(v.entryDate) : null;
+  // Tương thích dữ liệu cũ: chỉ dùng thời điểm IN đã ghi trong lịch sử.
+  const ins=(v.history||[]).filter(h=>h.action==='IN');
+  const last=ins.length?ins[ins.length-1]:null;
+  const candidate=last && (last.entryDate || last.time);
+  return candidate && validDateValue(candidate) ? dateOnly(candidate) : null;
+}
+function validDateValue(v){if(!v)return false;const d=new Date(v);return Number.isFinite(d.getTime())}
+function dateOnly(v){
+  const d=new Date(v);if(!Number.isFinite(d.getTime()))return null;
+  const parts=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Ho_Chi_Minh',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(d);
+  const o={};parts.forEach(x=>o[x.type]=x.value);return `${o.year}-${o.month}-${o.day}`;
+}
+function dateDiffAt(entry,cutoff){
+  if(!entry)return 999;
+  const a=new Date(entry+'T00:00:00+07:00'),b=new Date(cutoff+'T00:00:00+07:00');
+  if(!Number.isFinite(a.getTime())||!Number.isFinite(b.getTime()))return 999;
+  return Math.max(0,Math.floor((b-a)/86400000));
+}
+function dayDiff(entry){return dateDiffAt(entry,dateOnly(new Date().toISOString()))}
+function parseExcelDateTime(value){
+ if(value===null||value===undefined||value==='')return null;
+ const make=(y,m,d,h=0,mi=0,se=0)=>{const stamp=`${y}-${pad(m)}-${pad(d)}T${pad(h)}:${pad(mi)}:${pad(se)}+07:00`;const dt=new Date(stamp);return Number.isFinite(dt.getTime())?dt.toISOString():null};
+ if(typeof value==='number'){const x=window.XLSX&&XLSX.SSF.parse_date_code(value);return x?make(x.y,x.m,x.d,x.H||0,x.M||0,Math.floor(x.S||0)):null}
+ if(value instanceof Date)return Number.isFinite(value.getTime())?value.toISOString():null;
+ const t=String(value).trim();let m=t.match(/^(\d{1,2})[\/.-](\d{1,2})[\/.-](\d{4})(?:[ T](\d{1,2}):(\d{2})(?::(\d{2}))?)?$/);
+ if(m)return make(Number(m[3]),Number(m[2]),Number(m[1]),Number(m[4]||0),Number(m[5]||0),Number(m[6]||0));
+ m=t.match(/^(\d{4})-(\d{2})-(\d{2})(?:[ T](\d{1,2}):(\d{2})(?::(\d{2}))?)?$/);
+ if(m)return make(Number(m[1]),Number(m[2]),Number(m[3]),Number(m[4]||0),Number(m[5]||0),Number(m[6]||0));
+ const dt=new Date(t);return Number.isFinite(dt.getTime())?dt.toISOString():null;
+}
+function parseExcelDate(value){const t=parseExcelDateTime(value);return t?dateOnly(t):null}
+function entryTimestamp(dateValue,timeValue){
+  if(!dateValue)return null;
+  return timeValue&&validDateValue(timeValue)?new Date(timeValue).toISOString():new Date(dateValue+'T12:00:00+07:00').toISOString();
+}
+function norm(s){return String(s||'').toUpperCase().replace(/[^A-Z0-9]/g,'')}
+function ident(v){return v.type==='new'?(v.code||'Chưa có VIN'):(v.code||'Chưa có biển số')}
+function slotNames(){let a=[];for(let r=1;r<=5;r++)for(const c of ['T','TLD','PLD','P'])for(let n=1;n<=20;n++)a.push(`${r}${c}-${n}`);return a}
+const slots=slotNames();
+function openDB(){return new Promise((res,rej)=>{const q=indexedDB.open(DB_NAME,1);q.onupgradeneeded=()=>q.result.createObjectStore(STORE,{keyPath:'id'});q.onsuccess=()=>{db=q.result;res()};q.onerror=()=>rej(q.error)})}
+function all(){return new Promise((res,rej)=>{const q=db.transaction(STORE).objectStore(STORE).getAll();q.onsuccess=()=>res(q.result||[]);q.onerror=()=>rej(q.error)})}
+function put(v){return new Promise((res,rej)=>{const q=db.transaction(STORE,'readwrite').objectStore(STORE).put(v);q.onsuccess=()=>res();q.onerror=()=>rej(q.error)})}
+function clearDB(){return new Promise((res,rej)=>{const q=db.transaction(STORE,'readwrite').objectStore(STORE).clear();q.onsuccess=()=>res();q.onerror=()=>rej(q.error)})}
+async function reload(){vehicles=await all();renderAll()}
+async function init(){await openDB();vehicles=await all();const obsolete=vehicles.filter(v=>v.sample===true);for(const v of obsolete)await new Promise((resolve,reject)=>{const q=db.transaction(STORE,'readwrite').objectStore(STORE).delete(v.id);q.onsuccess=resolve;q.onerror=()=>reject(q.error)});if(obsolete.length)vehicles=await all();$('eTime').value=localNow();$('xTime').value=localNow();$('periodDate').value=localNow().slice(0,10);$('fromDate').value=localNow().slice(0,10);$('toDate').value=localNow().slice(0,10);fillSlots();renderAll();renderReport()}
+function active(){return vehicles.filter(v=>v.status==='in')}
+function fillSlots(){const used=new Set(active().map(v=>v.slot).filter(Boolean));$('eSlot').innerHTML='<option value="">Chờ gán vị trí</option>'+slots.filter(s=>!used.has(s)).map(s=>`<option>${s}</option>`).join('')}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function card(v){const hist=(v.history||[]);let details=`<div class="detail">Dòng xe: <b>${esc(v.model||'—')}</b> · Màu: <b>${esc(v.color||'—')}</b><br>Ngày giờ vào: <b>${fmt(([...hist].reverse().find(h=>h.action==='IN')||{}).time || (currentEntryDate(v)?entryTimestamp(currentEntryDate(v)):null))}</b><br>Người nhập: <b>${esc(([...hist].reverse().find(h=>h.action==='IN')||{}).person??v.entryPerson??'—')}</b><br>Vị trí: <b>${esc(v.slot||'Chờ gán vị trí')}</b>`;
+if(v.status==='out'){details+=`<br>Ngày giờ ra: <b>${fmt(v.lastExit?.time)}</b><br>Người xuất: <b>${esc(v.lastExit?.person||'—')}</b><br>Lý do ra: <b>${esc(v.lastExit?.reason||'—')}</b><br>Ghi chú: <b>${esc(v.lastExit?.note||'—')}</b>`}
+if(v.specialEvent)details+=`<br>Diễn biến đặc biệt: <b>${esc(v.specialEvent)}</b>`;details+='</div>';const vid=encodeURIComponent(v.id);return `<div class="vehicle"><div class="vhead"><div><div class="plate">${esc(ident(v))}</div><div class="muted">${esc(v.model||'Chưa rõ dòng xe')} · ${esc(v.color||'Chưa rõ màu')}</div></div><span class="pill ${v.status==='out'?'out':v.type==='new'?'new':''}">${v.status==='out'?'ĐÃ XUẤT BÃI':v.type==='new'?'XE MỚI':'XE CŨ'}</span></div>${details}<div class="actions">${v.status==='in'?`<button class="secondary" onclick="quickExit(decodeURIComponent('${vid}'))">Xuất xe</button><button class="secondary" onclick="quickMove(decodeURIComponent('${vid}'))">Chuyển vị trí</button><button class="secondary" onclick="unassign(decodeURIComponent('${vid}'))">Gỡ vị trí</button>`:''}<button class="secondary" onclick="showHistory(decodeURIComponent('${vid}'))">Lịch sử đầy đủ</button><button class="secondary" onclick="editVehicle(decodeURIComponent('${vid}'))">Sửa thông tin</button><button class="danger" onclick="deleteVehicle(decodeURIComponent('${vid}'))">Xóa hồ sơ</button></div></div>`}
+
+function editVehicle(id){
+ const v=vehicles.find(x=>x.id===id);if(!v){toast('Không tìm thấy hồ sơ xe.');return}
+ const inEvent=[...(v.history||[])].reverse().find(h=>h.action==='IN')||{};
+ const entryDate=currentEntryDate(v)||'';
+ const options=slots.filter(name=>name===v.slot||!active().some(x=>x.id!==id&&x.slot===name));
+ $('modalHost').innerHTML=`<div class="modalback" onclick="if(event.target===this)closeModal()"><div class="modal"><h3>Sửa thông tin xe</h3><div class="hint">Mã hồ sơ: ${esc(ident(v))}</div><div class="grid">
+ <div class="field"><label>Loại xe</label><select id="editType"><option value="old" ${v.type==='old'?'selected':''}>Xe cũ (Có biển)</option><option value="new" ${v.type==='new'?'selected':''}>Xe mới (6 số VIN)</option></select></div>
+ <div class="field"><label>Trạng thái</label><select id="editStatus"><option value="in" ${v.status==='in'?'selected':''}>Đang ở bãi</option><option value="out" ${v.status==='out'?'selected':''}>Đã xuất bãi</option></select></div>
+ <div class="field full"><label>Biển số / 6 số VIN</label><input id="editCode" value="${esc(v.code||'')}" placeholder="Nhập mã xe"></div>
+ <div class="field"><label>Dòng xe</label><input id="editModel" value="${esc(v.model||'')}"></div><div class="field"><label>Màu xe</label><input id="editColor" value="${esc(v.color||'')}"></div>
+ <div class="field"><label>Ngày vào bãi</label><input id="editDate" type="date" value="${esc(entryDate)}"></div><div class="field"><label>Tên / Bộ phận</label><input id="editPerson" value="${esc(inEvent.person??v.entryPerson??'')}"></div>
+ <div class="field full"><label>Ghi chú vào</label><textarea id="editNote">${esc(inEvent.note??v.entryNote??'')}</textarea></div>
+ <div class="field full"><label>Diễn biến đặc biệt</label><textarea id="editSpecial" placeholder="Nhập diễn biến đặc biệt của xe">${esc(v.specialEvent||'')}</textarea></div>
+ <div class="field full" id="editSlotWrap" style="${v.status==='in'?'':'display:none'}"><label>Vị trí xe</label><select id="editSlot"><option value="">Chờ gán vị trí</option>${options.map(name=>`<option value="${name}" ${v.slot===name?'selected':''}>${name}</option>`).join('')}</select></div></div>
+ <div class="actions"><button onclick="saveVehicleEdit(decodeURIComponent('${encodeURIComponent(id)}'))">Lưu thay đổi</button><button class="secondary" onclick="closeModal()">Hủy</button></div></div></div>`;
+ $('editStatus').onchange=()=>{$('editSlotWrap').style.display=$('editStatus').value==='in'?'':'none'};
+}
+async function saveVehicleEdit(id){
+ const v=vehicles.find(x=>x.id===id);if(!v){toast('Không tìm thấy hồ sơ xe.');closeModal();return}
+ const type=$('editType').value,status=$('editStatus').value,code=norm($('editCode').value),model=$('editModel').value.trim(),color=$('editColor').value.trim(),entryDate=$('editDate').value||null,person=$('editPerson').value.trim(),note=$('editNote').value.trim(),specialEvent=$('editSpecial').value.trim();
+ if(!['in','out'].includes(status)){toast('Trạng thái xe không hợp lệ.');return}
+ if(code&&vehicles.some(x=>x.id!==id&&norm(x.code)===code)){toast('Biển số / VIN này đã tồn tại trong hồ sơ khác.');return}
+ if(type==='new'&&code&&!/^\d{6}$/.test(code)){toast('Xe mới phải có mã VIN gồm đúng 6 chữ số.');return}
+ if(type==='old'&&code&&/^\d{6}$/.test(code)){toast('Mã gồm 6 chữ số được nhận diện là VIN xe mới. Hãy chọn loại xe mới.');return}
+ const slot=status==='in'?($('editSlot').value||null):null;
+ if(status==='in'&&slot&&!slots.includes(slot)){toast('Vị trí đỗ không hợp lệ.');return}
+ if(slot&&active().some(x=>x.id!==id&&x.slot===slot)){toast('Vị trí này đã có xe khác.');return}
+ const before={type:v.type,code:v.code||'',model:v.model||'',color:v.color||'',entryDate:currentEntryDate(v)||'',person:v.entryPerson||'',note:v.entryNote||'',slot:v.slot||'',status:v.status||'in',specialEvent:v.specialEvent||''};
+ const oldStatus=v.status||'in';
+ v.type=type;v.code=code;v.model=model;v.color=color;v.entryDate=entryDate;v.entryPerson=person;v.entryNote=note;v.specialEvent=specialEvent;v.status=status;v.slot=slot;v.sourceSlot=slot||v.sourceSlot||'';
+ const inEvent=[...(v.history||[])].reverse().find(h=>h.action==='IN');
+ if(inEvent){inEvent.entryDate=entryDate;if(entryDate){const oldTime=inEvent.time?new Date(inEvent.time):null;let hh='12:00';if(oldTime&&Number.isFinite(oldTime.getTime()))hh=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Ho_Chi_Minh',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(oldTime);inEvent.time=new Date(entryDate+'T'+hh+':00+07:00').toISOString()}else inEvent.time=null;inEvent.person=person;inEvent.note=note}
+ if(oldStatus!==status){
+  v.history=Array.isArray(v.history)?v.history:[];const now=new Date().toISOString();
+  if(status==='out'){v.lastExit={time:now,person:'Cập nhật thủ công',reason:'Chỉnh sửa trạng thái hồ sơ',note:specialEvent,condition:'Chỉnh sửa thủ công'};v.history.push({action:'OUT',time:now,person:'Cập nhật thủ công',reason:'Chỉnh sửa trạng thái hồ sơ',condition:'Chỉnh sửa thủ công',note:specialEvent,source:'manual-edit'});}
+  else {v.history.push({action:'IN',time:now,entryDate,person,note,source:'manual-edit'});}
+ }
+ const after={type:v.type,code:v.code||'',model:v.model||'',color:v.color||'',entryDate:v.entryDate||'',person:v.entryPerson||'',note:v.entryNote||'',slot:v.slot||'',status:v.status||'in',specialEvent:v.specialEvent||''};const changed=Object.keys(after).filter(k=>String(before[k]??'')!==String(after[k]??''));
+ if(!changed.length){closeModal();toast('Không có thông tin nào thay đổi.');return}
+ v.editHistory=Array.isArray(v.editHistory)?v.editHistory:[];v.editHistory.push({time:new Date().toISOString(),fields:changed,before,after});v.updatedAt=new Date().toISOString();
+ try{await put(v);closeModal();await reloadMapPreservingState();renderReport();toast('Đã lưu thay đổi thông tin xe.')}catch(err){console.error('saveVehicleEdit:',err);toast('Không lưu được hồ sơ: '+(err.message||'Lỗi cơ sở dữ liệu'))}
+}
+async function deleteVehicle(id){
+ const v=vehicles.find(x=>x.id===id);if(!v){toast('Không tìm thấy hồ sơ xe.');return}
+ if(!confirm(`Bạn chắc chắn muốn XÓA HỒ SƠ ${ident(v)}?\n\nHồ sơ xe và toàn bộ lịch sử nhập–xuất/chỉnh sửa của riêng xe này sẽ bị xóa vĩnh viễn khỏi thiết bị. Thao tác không thể hoàn tác.`))return;
+ try{await new Promise((resolve,reject)=>{const q=db.transaction(STORE,'readwrite').objectStore(STORE).delete(id);q.onsuccess=resolve;q.onerror=()=>reject(q.error)});if(selectedSlot===v.slot)selectedSlot=null;closeModal();await reloadMapPreservingState();renderReport();toast('Đã xóa hồ sơ xe '+ident(v)+'.');}
+ catch(err){console.error('deleteVehicle:',err);toast('Không xóa được hồ sơ: '+(err.message||'Lỗi cơ sở dữ liệu'));}
+}
+
+function renderHome(){const a=active();$('homeKpis').innerHTML=[['TỔNG XE TỒN BÃI',a.length],['XE CŨ CÓ BIỂN',a.filter(v=>v.type==='old').length],['XE MỚI CHƯA BIỂN',a.filter(v=>v.type==='new').length],['XE CHỜ GÁN VỊ TRÍ',a.filter(v=>!v.slot).length]].map((x,i)=>`<div class="kpi"><small>${x[0]}</small><strong>${x[1]}</strong></div>`).join('');const w=a.filter(v=>!v.slot);$('waitCount').textContent=w.length;$('homeWait').innerHTML=w.length?`<button class="secondary" onclick="showPage('yard');openWaitingList()">Chạm để xem ${w.length} xe chờ gán</button>`:'<span class="muted">Không có xe chờ gán.</span>'}
+function renderActive(){const a=active();$('activeList').innerHTML=a.map(card).join('')||'<div class="empty">Bãi hiện không có xe.</div>';$('activeCars').innerHTML=a.map(v=>`<option value="${esc(v.code||v.id)}">`).join('')}
+function renderYard(){
+ const a=active(),waiting=a.filter(v=>!v.slot);$('yardWaitCount').textContent=waiting.length;
+ let html='';
+ for(let r=1;r<=5;r++){
+  const expanded=expandedRows.has(r);
+  html+=`<div class="yardrow"><button class="yardtitle" onclick="toggleRow(${r})"><b>DÃY ${r}</b><span id="arrow${r}">${expanded?'Thu gọn ▴':'Mở rộng ▾'}</span></button><div class="yardbody ${expanded?'':'hidden'}" id="rowbody${r}"><div class="yardgrid">${['T','TLD','PLD','P'].map(c=>`<div class="coltitle">${c}</div>`).join('')}`;
+  for(let n=1;n<=20;n++)for(const c of ['T','TLD','PLD','P']){
+   const name=`${r}${c}-${n}`,v=a.find(x=>x.slot===name);
+   html+=`<button class="slot ${v?(v.type==='new'?'new':'old'):''} ${selectedSlot===name?'selected':''}" onclick="tapSlot('${name}')"><strong>${name}</strong>${v?`<small>${esc(ident(v))}</small>`:'<small>Trống</small>'}</button>`;
+  }
+  html+='</div></div></div>';
+ }
+ $('yardRows').innerHTML=html;
+}
+async function reloadMapPreservingState(){
+ const y=window.scrollY,x=window.scrollX;
+ const horizontal={};document.querySelectorAll('.yardbody').forEach((el,i)=>horizontal[i]=el.scrollLeft);
+ vehicles=await all();renderAll();
+ requestAnimationFrame(()=>{window.scrollTo({left:x,top:y,behavior:'auto'});document.querySelectorAll('.yardbody').forEach((el,i)=>{if(horizontal[i]!==undefined)el.scrollLeft=horizontal[i]})});
+}
+function openWaitingList(){
+ const waiting=active().filter(v=>!v.slot);
+ $('modalHost').innerHTML=`<div class="modalback" onclick="if(event.target===this)closeModal()"><div class="modal"><h3>Danh sách xe chờ gán (${waiting.length})</h3><input id="waitSearch" placeholder="Tìm biển số / VIN / dòng xe" style="width:100%;padding:12px;border:1px solid #cbd6e2;border-radius:10px;margin:5px 0 10px"><div id="waitModalList" class="compact-wait-list"></div><div class="actions"><button class="secondary" onclick="closeModal()">Đóng</button></div></div></div>`;
+ const draw=()=>{const q=norm($('waitSearch').value);const rows=waiting.filter(v=>!q||norm([v.code,v.model].join(' ')).includes(q));$('waitModalList').innerHTML=rows.map(v=>`<button class="waititem" onclick="selectWaiting('${v.id}');closeModal()">${esc(ident(v))} · ${esc(v.model||'')}<br><small>Chạm để chọn gán vào ô trống</small></button>`).join('')||'<div class="empty">Không có xe phù hợp.</div>'};
+ $('waitSearch').oninput=draw;draw();
+}
+function renderAll(){renderHome();renderActive();renderYard();fillSlots();$('dbInfo').textContent=`Tổng hồ sơ: ${vehicles.length} · Đang trong bãi: ${active().length} · Đã xuất: ${vehicles.filter(v=>v.status==='out').length}`}
+let currentPage='home';
+function showPage(p){const same=p===currentPage;document.querySelectorAll('.page').forEach(x=>x.classList.toggle('hidden',x.id!==p));document.querySelectorAll('#tabs button').forEach(x=>x.classList.toggle('active',x.dataset.page===p));currentPage=p;if(p==='yard')renderYard();if(p==='report')renderReport();if(!same)window.scrollTo({top:0,behavior:'smooth'})}
+$('tabs').addEventListener('click',e=>{const b=e.target.closest('button[data-page]');if(b)showPage(b.dataset.page)});
+function toast(s){$('toastHost').innerHTML=`<div class="toast">${esc(s)}</div>`;setTimeout(()=>$('toastHost').innerHTML='',2400)}
+function search(){const q=norm($('globalSearch').value);if(!q){$('searchResults').innerHTML='<div class="empty">Nhập biển số hoặc VIN để tìm kiếm.</div>';return}const found=vehicles.filter(v=>norm(v.code).includes(q)||norm(v.id).includes(q));$('searchResults').innerHTML=found.length?found.map(card).join(''):'<div class="empty">Không tìm thấy xe phù hợp.</div>'}
+$('searchBtn').onclick=search;$('globalSearch').addEventListener('keydown',e=>{if(e.key==='Enter')search()});
+function activeMatch(code){const key=norm(code);return key?active().find(v=>norm(v.code)===key):null}
+function anyMatch(code){const key=norm(code);return key?vehicles.find(v=>norm(v.code)===key&&v.status==='in'):null}
+$('saveEntry').onclick=async()=>{
+ const type=$('eType').value,code=norm($('eId').value),slot=$('eSlot').value;
+ const occupied=code?activeMatch(code):null;
+ if(occupied){toast(`Lỗi: Xe ${ident(occupied)} hiện đang tồn trong bãi tại vị trí ${occupied.slot||'Chờ gán'}. Không thể tái nhập!`);return}
+ if(slot&&active().some(v=>v.slot===slot)){toast('Ô đỗ đã có xe.');return}
+ const entryDate=$('eTime').value?$('eTime').value.slice(0,10):null,time=entryDate?fromLocal($('eTime').value):null;
+ const v={id:code?`live_${type}_${code}_${Date.now()}`:`manual_${Date.now()}`,type,code,model:$('eModel').value,color:$('eColor').value,status:'in',slot:slot||null,sourceSlot:slot||'',createdAt:new Date().toISOString(),entryDate,updatedAt:new Date().toISOString(),sample:false,history:[{action:'IN',time,entryDate,person:$('ePerson').value,note:$('eNote').value}],entryPerson:$('ePerson').value,entryNote:$('eNote').value};
+ await put(v);await reload();$('eId').value='';$('eModel').value='';$('eColor').value='';$('ePerson').value='';$('eNote').value='';$('eTime').value=localNow();$('eSlot').value='';toast('Đã ghi nhận nhập xe');showPage('home');
+};
+$('clearEntry').onclick=()=>document.querySelectorAll('#entry input,#entry textarea').forEach(x=>x.value='');
+$('saveExit').onclick=async()=>{const raw=$('xId').value.trim(),q=norm(raw);let v=q?active().find(x=>norm(x.code)===q||x.id===raw):null;if(!v){toast(`Lỗi: Không tìm thấy xe ${raw||'được nhập'} trong danh sách tồn bãi. Phải có dữ liệu nhập trước mới được xuất!`);return}const exit={time:fromLocal($('xTime').value),person:$('xPerson').value,reason:$('xReason').value,note:$('xNote').value};v.status='out';v.slot=null;v.lastExit=exit;v.updatedAt=new Date().toISOString();v.history.push({action:'OUT',...exit});await put(v);await reload();$('xId').value='';$('xPerson').value='';$('xReason').value='';$('xNote').value='';$('xTime').value=localNow();toast('Đã xuất xe và giải phóng vị trí')};
+function quickExit(id){const v=vehicles.find(x=>x.id===id);$('xId').value=v.code||v.id;showPage('exit');$('xId').focus()}
+function quickMove(id){moveCar=id;yardChoice=null;showPage('yard');toast('Chọn ô trống mới trên sơ đồ')}
+async function unassign(id){const v=vehicles.find(x=>x.id===id);if(!v||v.status!=='in')return;closeModal();v.slot=null;v.sourceSlot='';v.updatedAt=new Date().toISOString();await put(v);await reloadMapPreservingState();toast('Đã gỡ xe khỏi ô, xe vẫn tồn bãi')}
+function selectWaiting(id){yardChoice=id;moveCar=null;toast('Đã chọn xe. Chạm ô trống để gán vị trí')}
+function goYard(id){selectWaiting(id);showPage('yard')}
+async function tapSlot(name){
+ const occupant=active().find(v=>v.slot===name);
+ if(occupant){selectedSlot=name;openSlotMenu(occupant);return}
+ if(moveCar||yardChoice){
+  const id=moveCar||yardChoice,v=vehicles.find(x=>x.id===id);
+  if(!v||v.status!=='in'){toast('Xe không còn trong danh sách tồn bãi.');yardChoice=null;moveCar=null;return}
+  if(active().some(x=>x.slot===name)){toast('Ô đã có xe');return}
+  v.slot=name;v.sourceSlot=name;v.updatedAt=new Date().toISOString();await put(v);yardChoice=null;moveCar=null;selectedSlot=name;
+  await reloadMapPreservingState();toast('Đã cập nhật vị trí '+name);
+ }else{selectedSlot=name;openChoose(name)}
+}
+function openChoose(name){
+ const w=active().filter(v=>!v.slot);
+ $('modalHost').innerHTML=`<div class="modalback" onclick="if(event.target===this)closeModal()"><div class="modal"><h3>Gán xe vào ${name}</h3><div class="hint">Chọn xe đang chờ gán hoặc nhập xe mới trực tiếp vào ô này.</div>${w.map(v=>`<button class="secondary" style="width:100%;margin:4px 0;text-align:left" onclick="assignTo('${v.id}','${name}')">${esc(ident(v))} · ${esc(v.model||'')}</button>`).join('')||'<p class="muted">Không có xe chờ gán.</p>'}<div class="actions"><button onclick="openDirectEntry('${name}')">+ Nhập xe mới vào ô này</button><button class="secondary" onclick="closeModal()">Đóng</button></div></div></div>`;
+}
+function openDirectEntry(name){
+ $('modalHost').innerHTML=`<div class="modalback" onclick="if(event.target===this)closeModal()"><div class="modal"><h3>Nhập xe trực tiếp vào ${name}</h3><div class="field"><label>Loại xe</label><select id="directType"><option value="old">Xe cũ (Có biển)</option><option value="new">Xe mới (6 số VIN)</option></select></div><div class="field"><label>Biển số / 6 số VIN</label><input id="directCode" placeholder="Nhập mã xe"></div><div class="field"><label>Dòng xe</label><input id="directModel" placeholder="Dòng xe"></div><div class="field"><label>Màu xe</label><input id="directColor" placeholder="Màu xe"></div><div class="field"><label>Ngày nhập (có thể để trống)</label><input id="directDate" type="date" value="${localNow().slice(0,10)}"></div><div class="field"><label>Tên / Bộ phận</label><input id="directPerson"></div><div class="field"><label>Ghi chú</label><textarea id="directNote"></textarea></div><div class="actions"><button onclick="saveDirectEntry('${name}')">Lưu xe vào ${name}</button><button class="secondary" onclick="openChoose('${name}')">Quay lại</button></div></div></div>`;
+}
+async function saveDirectEntry(name){
+ const type=$('directType').value,code=norm($('directCode').value),duplicate=code?activeMatch(code):null;
+ if(duplicate){toast(`Lỗi: Xe ${ident(duplicate)} hiện đang tồn trong bãi tại vị trí ${duplicate.slot||'Chờ gán'}. Không thể tái nhập!`);return}
+ if(active().some(v=>v.slot===name)){toast('Ô đỗ đã có xe.');return}
+ const entryDate=$('directDate').value||null,time=entryDate?new Date(entryDate+'T12:00:00+07:00').toISOString():null;
+ const v={id:code?`live_${type}_${code}_${Date.now()}`:`manual_${Date.now()}`,type,code,model:$('directModel').value,color:$('directColor').value,status:'in',slot:name,sourceSlot:name,createdAt:new Date().toISOString(),entryDate,updatedAt:new Date().toISOString(),history:[{action:'IN',time,entryDate,person:$('directPerson').value,note:$('directNote').value}],entryPerson:$('directPerson').value,entryNote:$('directNote').value};
+ await put(v);closeModal();selectedSlot=name;await reloadMapPreservingState();toast('Đã nhập xe và xếp vào ô '+name);
+}
+function openSlotMenu(v){const vid=encodeURIComponent(v.id);$('modalHost').innerHTML=`<div class="modalback" onclick="if(event.target===this)closeModal()"><div class="modal"><h3>${esc(ident(v))} · ${esc(v.slot)}</h3><p class="muted">${esc(v.model||'')} · ${esc(v.color||'')}</p><div class="actions"><button onclick="moveFromMenu(decodeURIComponent('${vid}'))">Chuyển vị trí</button><button class="secondary" onclick="unassign(decodeURIComponent('${vid}'))">Kích khỏi ô</button><button class="secondary" onclick="quickExit(decodeURIComponent('${vid}'));closeModal()">Xuất xe</button><button class="secondary" onclick="editVehicle(decodeURIComponent('${vid}'))">Sửa thông tin</button><button class="danger" onclick="deleteVehicle(decodeURIComponent('${vid}'))">Xóa hồ sơ</button><button class="secondary" onclick="closeModal()">Đóng</button></div></div></div>`}
+async function assignTo(id,name){
+ const v=vehicles.find(x=>x.id===id);if(!v||v.status!=='in'){toast('Xe không còn trong danh sách tồn bãi.');closeModal();return}
+ if(active().some(x=>x.id!==id&&x.slot===name)){toast('Ô đỗ đã có xe.');return}
+ v.slot=name;v.sourceSlot=name;v.updatedAt=new Date().toISOString();await put(v);closeModal();yardChoice=null;moveCar=null;selectedSlot=name;await reloadMapPreservingState();toast('Đã gán '+name);
+}
+function moveFromMenu(id){closeModal();moveCar=id;yardChoice=null;toast('Chạm ô trống để chuyển xe; dãy đang mở sẽ được giữ nguyên')}
+function closeModal(){$('modalHost').innerHTML=''}
+function toggleRow(r){const el=$('rowbody'+r);if(!el)return;if(expandedRows.has(r)){expandedRows.delete(r);el.classList.add('hidden')}else{expandedRows.add(r);el.classList.remove('hidden')}const a=$('arrow'+r);if(a)a.textContent=expandedRows.has(r)?'Thu gọn ▴':'Mở rộng ▾'}
+function editHistoryHtml(x){const labels={type:'Loại xe',code:'Biển số / VIN',model:'Dòng xe',color:'Màu xe',entryDate:'Ngày vào bãi',person:'Tên / Bộ phận',note:'Ghi chú vào',slot:'Vị trí',status:'Trạng thái',specialEvent:'Diễn biến đặc biệt'};const lines=(x.fields||[]).map(k=>`${labels[k]||k}: ${String(x.before?.[k]??'—')} → ${String(x.after?.[k]??'—')}`).map(esc).join('<br>');return `<div class="vehicle"><b>CHỈNH SỬA THÔNG TIN</b><div class="detail">${fmt(x.time)}<br>${lines}</div></div>`}
+function showHistory(id){const v=vehicles.find(x=>x.id===id);if(!v)return;const h=(v.history||[]).map(x=>`<div class="vehicle"><b>${x.action==='IN'?'NHẬP BÃI':'XUẤT BÃI'}</b><div class="detail">${fmt(x.time)}<br>Người: ${esc(x.person||'—')}<br>${x.condition?'Tình trạng: '+esc(x.condition)+'<br>':''}${x.reason?'Lý do: '+esc(x.reason)+'<br>':''}Ghi chú: ${esc(x.note||'—')}</div></div>`).join('');const edits=(v.editHistory||[]).slice().reverse().map(editHistoryHtml).join('');$('modalHost').innerHTML=`<div class="modalback" onclick="if(event.target===this)closeModal()"><div class="modal"><h3>Lịch sử ${esc(ident(v))}</h3>${h||'<p class="muted">Chưa có lịch sử nhập–xuất.</p>'}${edits?'<h3 style="margin-top:14px">Nhật ký chỉnh sửa</h3>'+edits:''}<button class="secondary" onclick="closeModal()">Đóng</button></div></div>`}
+function quickMoveFrom(id){quickMove(id)}
+window.quickExit=quickExit;window.quickMove=quickMove;window.unassign=unassign;window.selectWaiting=selectWaiting;window.goYard=goYard;window.tapSlot=tapSlot;window.assignTo=assignTo;window.moveFromMenu=moveFromMenu;window.closeModal=closeModal;window.showHistory=showHistory;window.toggleRow=toggleRow;window.openDirectEntry=openDirectEntry;window.saveDirectEntry=saveDirectEntry;window.openChoose=openChoose;window.editVehicle=editVehicle;window.saveVehicleEdit=saveVehicleEdit;window.deleteVehicle=deleteVehicle;
+function periodBounds(){const p=$('period').value,d=new Date(($('periodDate').value||localNow().slice(0,10))+'T12:00:00+07:00');let start,end;if(p==='custom'){start=new Date(($('fromDate').value||$('periodDate').value)+'T00:00:00+07:00');end=new Date(($('toDate').value||$('periodDate').value)+'T23:59:59+07:00')}else if(p==='month'){start=new Date(d.getFullYear(),d.getMonth(),1);end=new Date(d.getFullYear(),d.getMonth()+1,0,23,59,59)}else{const day=(d.getDay()+6)%7;start=new Date(d);start.setDate(d.getDate()-day);start.setHours(0,0,0,0);end=new Date(start);end.setDate(start.getDate()+5);end.setHours(23,59,59)}return {start,end}}
+function countAt(t,type){
+ let count=0;
+ vehicles.filter(v=>v.type===type).forEach(v=>{
+  const baseline=v.baselineAt?new Date(v.baselineAt):null;
+  const hasBaseline=baseline&&Number.isFinite(baseline.getTime());
+  let events=(v.history||[]).filter(h=>h.action==='IN'||h.action==='OUT')
+   .map(h=>({action:h.action,time:new Date(h.time||(h.entryDate?entryTimestamp(h.entryDate):''))}))
+   .filter(h=>Number.isFinite(h.time.getTime()))
+   .sort((a,b)=>a.time-b.time);
+  let state=false;
+  // Hồ sơ Excel thiếu ngày vào: tính tồn từ đầu kỳ đến ngày OUT có ghi nhận.
+  // Không sửa entryDate và không lấy createdAt làm ngày vào giả.
+  if(v.importedFromExcel&&!currentEntryDate(v)){
+   const outEvent=events.filter(h=>h.action==='OUT').pop();
+   if(outEvent){
+    state=t<outEvent.time;
+   }else if(hasBaseline&&t>=baseline){
+    state=v.baselineStatus==='in';
+   }else{
+    state=true;
+   }
+  }else if(hasBaseline&&t>=baseline){
+   state=v.baselineStatus==='in';
+   events=events.filter(h=>h.time>baseline&&h.time<=t);
+   if(events.length)state=events[events.length-1].action==='IN';
+  }else{
+   events=events.filter(h=>h.time<=t);
+   if(events.length)state=events[events.length-1].action==='IN';
+  }
+  if(state)count++;
+ });
+ return count;
+}
+function renderReport(){const {start,end}=periodBounds();const ageCutoff=$('period').value==='custom'?($('toDate').value||$('periodDate').value||localNow().slice(0,10)):($('periodDate').value||localNow().slice(0,10));const a=active(),old=a.filter(v=>v.type==='old'),fresh=a.filter(v=>v.type==='new');const days=Math.max(1,Math.min(40,Math.round((end-start)/86400000)+1));const label=$('period').value==='week'?'Tuần':$('period').value==='month'?'Tháng':'Tùy chọn';$('reportRange').textContent=`${label} • ${start.toLocaleDateString('vi-VN')} – ${end.toLocaleDateString('vi-VN')}`;$('reportKpis').innerHTML=[['TỔNG XE TỒN BÃI',a.length],['XE CŨ CÓ BIỂN',old.length],['XE MỚI CHƯA BIỂN',fresh.length],['XE TỒN TỪ 11 NGÀY',a.filter(v=>{const d=currentEntryDate(v);return !d||dateDiffAt(d,ageCutoff)>=11}).length]].map(x=>`<div class="kpi"><small>${x[0]}</small><strong>${x[1]}</strong></div>`).join('');
+let ins=0,outs=0,newOut=0;vehicles.forEach(v=>(v.history||[]).forEach(h=>{const t=new Date(h.time||(h.entryDate?entryTimestamp(h.entryDate):''));if(Number.isFinite(t.getTime())&&t>=start&&t<=end){if(h.action==='IN')ins++;if(h.action==='OUT'){outs++;if(v.type==='new')newOut++}}}));$('periodMetrics').innerHTML=[['Lượt xe vào',ins],['Lượt xe ra',outs],['Xe mới xuất bãi',newOut]].map(x=>`<div class="metricline"><span>${x[0]}</span><b>${x[1]}</b></div>`).join('');
+const dayEnd=d=>new Date(`${dateOnly(d.toISOString())}T23:59:59+07:00`);const max=Math.max(1,...Array.from({length:days},(_,i)=>{const t=new Date(start);t.setDate(t.getDate()+i);const e=dayEnd(t);return countAt(e,'old')+countAt(e,'new')}));let chart='';for(let i=0;i<days;i++){const t=new Date(start);t.setDate(t.getDate()+i);const e=dayEnd(t),o=countAt(e,'old'),n=countAt(e,'new');const oh=o?Math.max(2,o/max*100):0,nh=n?Math.max(2,n/max*100):0;chart+=`<div class="day" title="${t.toLocaleDateString('vi-VN')}: xe cũ ${o}, xe mới ${n}"><div class="barunit"><span class="barvalue" style="bottom:calc(${oh}% + 2px)">${o}</span><div class="barcol" style="height:${oh}%"></div></div><div class="barunit"><span class="barvalue" style="bottom:calc(${nh}% + 2px)">${n}</span><div class="barcol newbar" style="height:${nh}%"></div></div><label>${pad(t.getDate())}</label></div>`}$('inventoryChart').innerHTML=chart;
+const cutoff=ageCutoff;const ages=a.map(v=>{const d=currentEntryDate(v);return d?dateDiffAt(d,cutoff):999});const groups=[ages.filter(d=>d<=10).length,ages.filter(d=>d>=11&&d<=20).length,ages.filter(d=>d>=21&&d<=31).length,ages.filter(d=>d>31).length];$('age0').textContent=`Nhóm 0–10 ngày: ${groups[0]} xe`;$('ageBars').innerHTML=[['0–10 ngày',groups[0],''],['11–20 ngày',groups[1],''],['21–31 ngày',groups[2],'orange'],['>31 ngày (kể cả thiếu ngày nhập)',groups[3],'red']].map(x=>`<div class="barrow"><span>${x[0]}</span><div class="bar ${x[2]}"><span style="width:${Math.max(0,x[1]/Math.max(1,...groups)*100)}%"></span></div><b>${x[1]}</b></div>`).join('');$('specialPreview').textContent=$('specialEvents').value.trim()||'Không có diễn biến đặc biệt được chọn cho kỳ này.';const missingIn=vehicles.filter(v=>v.importedFromExcel&&!currentEntryDate(v)).length,missingOut=vehicles.filter(v=>v.importedFromExcel&&v.status==='out'&&!v.lastExit?.time).length;$('reportDataNote').textContent=`Mốc tồn đã kiểm: 20/11/2026 (${vehicles.filter(v=>v.importedFromExcel&&v.baselineStatus==='in').length} xe đang ở bãi). Hồ sơ Excel thiếu ngày vào được tính tồn từ đầu kỳ báo cáo đến ngày xuất có ghi nhận; ngày vào vẫn để trống, không tự gán ngày. Hồ sơ thiếu ngày vào: ${missingIn}; thiếu ngày ra: ${missingOut}.`}
+$('refreshReport').onclick=renderReport;$('period').onchange=()=>{const c=$('period').value==='custom';$('fromDate').disabled=!c;$('toDate').disabled=!c;renderReport()};$('periodDate').onchange=renderReport;$('fromDate').onchange=renderReport;$('toDate').onchange=renderReport;$('specialEvents').oninput=()=> $('specialPreview').textContent=$('specialEvents').value.trim()||'Không có diễn biến đặc biệt được chọn cho kỳ này.';
+$('backup').onclick=()=>downloadBlob(new Blob([JSON.stringify({app:'QLBX34',version:1,exportedAt:new Date().toISOString(),vehicles},null,2)],{type:'application/json'}),'QLBX34_backup.json');
+$('restoreBtn').onclick=()=>$('restoreFile').click();$('restoreFile').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const j=JSON.parse(await f.text()),arr=Array.isArray(j)?j:j.vehicles;if(!Array.isArray(arr)||!arr.length||!arr.every(v=>v&&typeof v==='object'&&typeof v.id==='string'&&v.id.trim()))throw Error('Cấu trúc JSON không hợp lệ hoặc không có hồ sơ hợp lệ.');if(!confirm(`Khôi phục ${arr.length} hồ sơ? Dữ liệu hiện tại sẽ được thay thế.`))return;await clearDB();for(const v of arr)await put(v);await reload();renderReport();toast('Đã khôi phục dữ liệu JSON')}catch(err){console.error('JSON restore:',err);toast(err.message||'File JSON không hợp lệ')}finally{e.target.value=''}};
+/* Xuất file tương thích trình duyệt và APK Android.
+   APK: Blob -> FileReader -> Base64 -> @JavascriptInterface -> MediaStore/Download.
+   Trình duyệt: Blob URL + anchor download. */
+function downloadBlob(blob,name){
+ if(!(blob instanceof Blob)||!blob.size){toast('Không tạo được dữ liệu file để tải xuống.');return false}
+ if(window.AndroidBridge&&typeof window.AndroidBridge.saveBase64File==='function'){
+  const reader=new FileReader();
+  reader.onload=()=>{try{const data=String(reader.result||''),base64=data.includes(',')?data.slice(data.indexOf(',')+1):'';if(!base64)throw new Error('Không mã hóa được file.');window.AndroidBridge.saveBase64File(base64,name,blob.type||'application/octet-stream')}catch(e){console.error(e);toast('Không gửi được file sang Android: '+e.message)}};
+  reader.onerror=()=>{console.error(reader.error);toast('Không đọc được dữ liệu file để lưu Android.')};
+  reader.readAsDataURL(blob);toast('Đang chuyển file vào thư mục Download…');return true;
+ }
+ const a=document.createElement('a'),u=URL.createObjectURL(blob);
+ a.href=u;a.download=name;a.style.display='none';document.body.appendChild(a);a.click();
+ setTimeout(()=>{URL.revokeObjectURL(u);a.remove()},1500);return true
+}
+window.onAndroidFileSaved=name=>toast('Đã lưu file thành công vào thư mục Download: '+name);
+window.onAndroidFileSaveError=message=>{console.error('Android file save:',message);toast('Lỗi lưu file Android: '+message)};
+function canvasToPngBlob(canvas){return new Promise((resolve,reject)=>{
+ canvas.toBlob(blob=>blob?resolve(blob):reject(new Error('Không tạo được ảnh PNG từ Canvas.')),'image/png')
+})}
+$('resetAll').onclick=async()=>{
+ if(!confirm('BƯỚC 1/2: Xác nhận xóa TOÀN BỘ dữ liệu xe trên thiết bị này?'))return;
+ const phrase=prompt('BƯỚC 2/2: Nhập chính xác XOA TOAN BO để xác nhận reset.');
+ if(phrase!=='XOA TOAN BO'){toast('Đã hủy reset. Dữ liệu được giữ nguyên.');return}
+ await clearDB();try{for(const k of Object.keys(localStorage))if(k.toLowerCase().startsWith('qlbx34'))localStorage.removeItem(k)}catch(e){}vehicles=[];await reload();renderReport();toast('Đã xóa sạch dữ liệu. Kho dữ liệu hiện trống.');
+};
+const ORIGINAL_HEADERS=['STT','LOẠI XE','BIỂN SỐ XE / 6 SỐ VIN','DÒNG XE','MÀU XE','VỊ TRÍ','THỜI GIAN VÀO','TÊN / BỘ PHẬN','TÌNH TRẠNG VÀO','GHI CHÚ VÀO','THỜI GIAN RA','TÊN / BỘ PHẬN','TÌNH TRẠNG RA','GHI CHÚ RA','TRẠNG THÁI','DIỄN BIẾN ĐẶC BIỆT'];
+function latestEvent(v,action){const a=(v.history||[]).filter(h=>h.action===action);return a.length?a[a.length-1]:{}}
+function asExcelDate(value){if(!value)return '';const d=new Date(value);if(!Number.isFinite(d.getTime()))return '';const p={};new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Ho_Chi_Minh',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'}).formatToParts(d).forEach(x=>p[x.type]=x.value);return (Date.UTC(Number(p.year),Number(p.month)-1,Number(p.day),Number(p.hour),Number(p.minute),Number(p.second))-Date.UTC(1899,11,30))/86400000}
+function toOriginalRow(v,stt){const en=latestEvent(v,'IN'),ex=latestEvent(v,'OUT'),entryTime=en.time||(currentEntryDate(v)?entryTimestamp(currentEntryDate(v)):null),exitTime=ex.time||v.lastExit?.time||null;return [stt,v.type==='new'?'Xe mới':'Xe cũ',v.code||'',v.model||'',v.color||'',v.status==='in'?(v.slot||v.sourceSlot||''):(v.sourceSlot||''),asExcelDate(entryTime),en.person??v.entryPerson??'',en.condition??v.entryCondition??'',en.note??v.entryNote??'',asExcelDate(exitTime),ex.person??v.lastExit?.person??v.exitPerson??'',ex.reason??ex.condition??v.lastExit?.reason??v.exitCondition??'',ex.note??v.lastExit?.note??v.exitNote??'',v.status==='out'?'Đã ra':'Đang ở bãi',v.specialEvent||'']}
+function exportOriginalWorkbook(list,filename){if(!window.XLSX){toast('SheetJS chưa tải được. Cần Internet để xuất XLSX.');return}const ordered=[...list].sort((a,b)=>(Number(a.sourceStt)||1e12)-(Number(b.sourceStt)||1e12)||String(a.createdAt||'').localeCompare(String(b.createdAt||'')));const data=[ORIGINAL_HEADERS,...ordered.map((v,i)=>toOriginalRow(v,i+1))];const ws=XLSX.utils.aoa_to_sheet(data);for(let r=2;r<=data.length;r++){for(const c of ['G','K']){const cell=ws[c+r];if(cell&&typeof cell.v==='number')cell.z='dd/mm/yyyy hh:mm'}}ws['!cols']=[{wch:7},{wch:12},{wch:24},{wch:16},{wch:12},{wch:14},{wch:20},{wch:18},{wch:18},{wch:24},{wch:20},{wch:18},{wch:20},{wch:24},{wch:14},{wch:32}];const wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,ws,'Sheet1');const bytes=XLSX.write(wb,{bookType:'xlsx',type:'array',cellDates:true});downloadBlob(new Blob([bytes],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'}),filename)}
+$('xlsxExport').onclick=()=>exportOriginalWorkbook(active(),'QLBX34_TON_BAI_2011_SCHEMA.xlsx');$('xlsxFullExport').onclick=()=>exportOriginalWorkbook(vehicles,'QLBX34_TOAN_BO_LICH_SU_2011_SCHEMA.xlsx');
+function cellAt(row,index){return row[index]===undefined||row[index]===null?'':row[index]}
+function importTypeFromCode(code,sourceType){const c=norm(code);if(/^\d{6}$/.test(c))return 'new';if(c)return 'old';return /mới|new|vin|chưa biển/i.test(String(sourceType||''))?'new':'old'}
+$('xlsxImport').onclick=async()=>{
+ const file=$('xlsxImportFile').files[0];if(!file){toast('Hãy chọn file .xlsx trước.');return}if(!window.XLSX){toast('SheetJS chưa tải được. Cần Internet để nhập XLSX.');return}
+ try{
+  const wb=XLSX.read(await file.arrayBuffer(),{type:'array',cellDates:false}),sheetName=wb.SheetNames.includes('Sheet1')?'Sheet1':wb.SheetNames[0],ws=wb.Sheets[sheetName],matrix=XLSX.utils.sheet_to_json(ws,{header:1,defval:'',raw:true});if(matrix.length<2){toast('Sheet không có dòng dữ liệu.');return}
+  const headers=(matrix[0]||[]).map(x=>String(x??'').trim()),required=['STT','LOẠI XE','BIỂN SỐ XE / 6 SỐ VIN','DÒNG XE','MÀU XE','VỊ TRÍ','THỜI GIAN VÀO','TÊN / BỘ PHẬN','TÌNH TRẠNG VÀO','GHI CHÚ VÀO','THỜI GIAN RA','TÌNH TRẠNG RA','GHI CHÚ RA','TRẠNG THÁI'],missing=required.filter(h=>!headers.includes(h));if(missing.length||headers.filter(h=>h==='TÊN / BỘ PHẬN').length!==2){toast('File chưa đúng cấu trúc Excel gốc. '+(missing.length?'Thiếu: '+missing.join(', '):'Cần đúng hai cột TÊN / BỘ PHẬN ở vị trí vào và ra.'));return}
+  const col={stt:headers.indexOf('STT'),type:headers.indexOf('LOẠI XE'),code:headers.indexOf('BIỂN SỐ XE / 6 SỐ VIN'),model:headers.indexOf('DÒNG XE'),color:headers.indexOf('MÀU XE'),slot:headers.indexOf('VỊ TRÍ'),entry:headers.indexOf('THỜI GIAN VÀO'),personIn:headers.indexOf('TÊN / BỘ PHẬN'),conditionIn:headers.indexOf('TÌNH TRẠNG VÀO'),noteIn:headers.indexOf('GHI CHÚ VÀO'),exit:headers.indexOf('THỜI GIAN RA'),personOut:headers.lastIndexOf('TÊN / BỘ PHẬN'),conditionOut:headers.indexOf('TÌNH TRẠNG RA'),noteOut:headers.indexOf('GHI CHÚ RA'),status:headers.indexOf('TRẠNG THÁI'),special:headers.indexOf('DIỄN BIẾN ĐẶC BIỆT')};
+  const baselineAt=new Date().toISOString(),prepared=[],badStatus=[],stats={in:0,out:0,old:0,new:0,waiting:0,assigned:0,missingEntry:0,missingExit:0};
+  for(let ri=1;ri<matrix.length;ri++){const row=matrix[ri];if(!row||row.every(x=>x===null||String(x).trim()===''))continue;const rawCode=String(cellAt(row,col.code)).trim(),code=norm(rawCode),type=importTypeFromCode(code,cellAt(row,col.type)),rawStatus=String(cellAt(row,col.status)).trim().toLocaleLowerCase('vi-VN');let status;if(rawStatus.includes('đã ra'))status='out';else if(rawStatus.includes('đang ở bãi'))status='in';else{badStatus.push(`Dòng ${ri+1}: trạng thái “${rawStatus||'trống'}” không hợp lệ`);continue}
+   const entryRaw=cellAt(row,col.entry),exitRaw=cellAt(row,col.exit),entryTime=parseExcelDateTime(entryRaw),exitTime=parseExcelDateTime(exitRaw),entryDate=entryTime?dateOnly(entryTime):null,rawSlot=String(cellAt(row,col.slot)).trim(),slot=slots.includes(rawSlot.toUpperCase())?rawSlot.toUpperCase():null,personIn=String(cellAt(row,col.personIn)).trim(),conditionIn=String(cellAt(row,col.conditionIn)).trim(),noteIn=String(cellAt(row,col.noteIn)).trim(),personOut=String(cellAt(row,col.personOut)).trim(),conditionOut=String(cellAt(row,col.conditionOut)).trim(),noteOut=String(cellAt(row,col.noteOut)).trim(),stt=String(cellAt(row,col.stt)).trim()||String(ri);
+   const history=[{action:'IN',time:entryTime,entryDate,person:personIn,condition:conditionIn,note:noteIn,source:'xlsx-original'}];if(status==='out')history.push({action:'OUT',time:exitTime,person:personOut,reason:conditionOut,condition:conditionOut,note:noteOut,source:'xlsx-original',undated:!exitTime});
+   const v={id:`excel2011_${stt}_${ri}`,sourceStt:Number(stt)||ri,importedFromExcel:true,baselineAt,baselineStatus:status,type,code,model:String(cellAt(row,col.model)).trim(),color:String(cellAt(row,col.color)).trim(),status,slot:status==='in'?slot:null,sourceSlot:rawSlot,createdAt:new Date().toISOString(),updatedAt:new Date().toISOString(),entryDate,entryPerson:personIn,entryCondition:conditionIn,entryNote:noteIn,exitPerson:personOut,exitCondition:conditionOut,exitNote:noteOut,specialEvent:String(cellAt(row,col.special)).trim(),lastExit:status==='out'?{time:exitTime,person:personOut,reason:conditionOut,note:noteOut,condition:conditionOut}:null,history};prepared.push(v);stats[status]++;stats[type]++;if(!entryTime)stats.missingEntry++;if(status==='out'&&!exitTime)stats.missingExit++;if(status==='in'){if(slot)stats.assigned++;else stats.waiting++}}
+  if(!prepared.length){toast('Không có bản ghi hợp lệ trong Sheet.');return}if(badStatus.length){toast(`Dừng import: ${badStatus.length} dòng có TRẠNG THÁI không nhận diện được. Ví dụ: ${badStatus.slice(0,2).join(' / ')}`);return}
+  const summary=`\n\nKết quả dự kiến: ${prepared.length} dòng; đang ở bãi ${stats.in}; đã ra ${stats.out}; xe cũ ${stats.old}; xe mới ${stats.new}; có vị trí ${stats.assigned}; chờ gán ${stats.waiting}; thiếu ngày vào ${stats.missingEntry}; thiếu ngày ra ${stats.missingExit}.`;
+  if(!confirm(`Bạn đang nhập ${file.name} từ Sheet “${sheetName}”.\nDữ liệu hiện tại trên thiết bị sẽ được thay thế hoàn toàn để bảo đảm không trùng lịch sử.${summary}\n\nTiếp tục?`))return;
+  await clearDB();for(const v of prepared)await put(v);await reload();renderReport();$('xlsxImportFile').value='';toast(`Đã đồng bộ ${prepared.length} dòng: ${stats.in} xe tồn, ${stats.out} xe đã ra; chờ gán ${stats.waiting}.`);
+ }catch(err){console.error(err);toast('Không đọc được cấu trúc file XLSX: '+(err.message||'Lỗi không xác định'))}
+};
+$('xlsxTemplate').onclick=()=>{
+ if(!window.XLSX){toast('SheetJS chưa tải được. Cần Internet để tạo file mẫu.');return}
+ const ws=XLSX.utils.aoa_to_sheet([ORIGINAL_HEADERS,Array(ORIGINAL_HEADERS.length).fill('')]),wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,ws,'Sheet1');const bytes=XLSX.write(wb,{bookType:'xlsx',type:'array',cellDates:true});downloadBlob(new Blob([bytes],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'}),'Mau_Excel_Goc_QLBX34_15_Cot.xlsx');
+};
+
+$('pngReport').onclick=async()=>{
+ const source=$('reportCapture');
+ if(!window.html2canvas){toast('Thiếu thư viện dựng ảnh báo cáo. Hãy bật Internet và tải lại ứng dụng.');return}
+ let exportRoot=null;
+ try{
+  // Chụp trên khung cố định 1280px để báo cáo luôn ngang, không phụ thuộc màn hình điện thoại.
+  await document.fonts?.ready;
+  exportRoot=document.createElement('div');
+  exportRoot.style.cssText='position:fixed;left:-16000px;top:0;width:1280px;z-index:-1;background:#fff;overflow:visible;';
+  const clone=source.cloneNode(true);clone.id='reportCaptureExport';clone.style.cssText+=';display:block!important;visibility:visible!important;width:1280px!important;max-width:none!important;margin:0!important;box-sizing:border-box!important;background:#fff!important;';
+  const grid=clone.querySelector('.reportgrid');if(grid)grid.style.cssText+=';display:grid!important;grid-template-columns:2fr 1fr!important;';
+  exportRoot.appendChild(clone);document.body.appendChild(exportRoot);
+  await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+  const canvas=await html2canvas(clone,{scale:2,backgroundColor:'#ffffff',useCORS:true,allowTaint:false,width:1280,windowWidth:1280,windowHeight:Math.max(900,clone.scrollHeight),scrollX:0,scrollY:0,logging:false});
+  if(canvas.width<2000||canvas.height<300)throw new Error('Kích thước ảnh báo cáo không hợp lệ.');
+  const blob=await canvasToPngBlob(canvas);downloadBlob(blob,'QLBX34_Bao_Cao.png');
+ }catch(e){console.error('PNG export:',e);toast(e.message||'Không xuất được ảnh PNG')}
+ finally{if(exportRoot)exportRoot.remove()}
+};
+$('cancelYardAction').onclick=()=>{yardChoice=null;moveCar=null;selectedSlot=null;renderYard();toast('Đã hủy thao tác sơ đồ')};
+window.handleAndroidBack=()=>{
+ try{
+  const host=$('modalHost');if(host&&host.children.length){closeModal();return true;}
+  if(typeof moveCar!=='undefined'&&moveCar){moveCar=null;selectedSlot=null;renderYard();return true;}
+  if(typeof yardChoice!=='undefined'&&yardChoice){yardChoice=null;selectedSlot=null;renderYard();return true;}
+  if(typeof currentPage!=='undefined'&&currentPage!=='home'){showPage('home');return true;}
+ }catch(e){console.error('Android back handler:',e)}
+ return false;
+};
+init().catch(e=>{console.error(e);toast('Không khởi tạo được cơ sở dữ liệu. Hãy mở bằng Chrome/Edge.')});
+</script>
+</body></html>
